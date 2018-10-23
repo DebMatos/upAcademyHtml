@@ -1,0 +1,46 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FizzBuzz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<h1>FizzBuzz</h1>
+
+<div id="num"></div>
+
+    <script>
+
+var tex="";
+        for (var i = 0; i < 40; i++) {
+
+            if (i % 5 === 0) {
+                tex+="Buzz "+'<br>';
+                document.getElementById("num").innerHTML =tex;
+            }else if (i % 3 === 0) {
+                tex+="Fizz "+'<br>';
+                document.getElementById("num").innerHTML =tex;
+            }else if ((i % 3 === 0) && (i % 5 === 0)){
+                tex+="BuzzFizz "+"<br>";
+                document.getElementById("num").innerHTML =tex ;
+            } else {
+                tex+=i+"<br>";
+                document.getElementById("num").innerHTML =tex ;
+            }
+
+
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

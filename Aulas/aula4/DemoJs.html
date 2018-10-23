@@ -1,0 +1,112 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DemoJs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+        <nav class="m-t-3 navbar navbar-expand-lg navbar-light bg-light">Saudacoes</nav>
+        <br>
+        <p id="demo"></p>
+        <p id="demo2"> </p>
+        <p id="demo3"> </p>
+        <p id="demo4"> </p>
+        <p id="demo5"> </p>
+
+
+        <!-- <button type="button" class="btn btn-dark" onclick='document.getElementById("demo").innerHTML="Hello world"'>Click me!</button>  -->
+    </div>
+
+    <script>
+
+
+        var d = new Date();
+        var hora = d.getHours();
+        var dia = d.getDay();
+
+
+
+        if (hora > 20) {
+            document.getElementById("demo").innerHTML = "Boa noite";
+        } else if (hora > 13) {
+            document.getElementById("demo").innerHTML = "Boa tarde";
+
+        } else {
+            document.getElementById("demo").innerHTML = "Bom dia";
+
+        }
+
+
+        switch (dia) {
+
+            case 0:
+                document.getElementById("demo2").innerHTML = "Domingo";
+                break;
+
+            case 1:
+                document.getElementById("demo2").innerHTML = "Segunda";
+                break;
+
+            case 2:
+                document.getElementById("demo2").innerHTML = "Terca";
+                break;
+
+            case 3:
+                document.getElementById("demo2").innerHTML = "Quarta";
+                break;
+
+            case 4:
+                document.getElementById("demo2").innerHTML = "Quinta";
+                break;
+
+            case 5:
+                document.getElementById("demo2").innerHTML = "Sexta";
+                break;
+
+            default:
+                document.getElementById("demo2").innerHTML = "Sabado";
+                break;
+
+
+        }
+
+
+        var text = "";
+        for (let index = 0; index < 10; index++) {
+            text += "Numero: " + index + "<br>";
+
+        }
+        document.getElementById("demo3").innerHTML = text;
+        
+
+         var text = "";
+         var person=["John","Dave","Mike"];
+         var x;
+        for (x in person) {
+            text +=person[x]+" ";
+
+        }
+        document.getElementById("demo4").innerHTML = text;
+
+
+        var text="";
+        var index=0;
+        while(index<10){
+            text+="Numero: "+ index+"<br>"
+            index++;
+        }
+        document.getElementById("demo5").innerHTML = text;
+    </script>
+</body>
+
+</html>

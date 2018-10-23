@@ -1,0 +1,71 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Formulario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h2 style="text-align:center;"> Registration Form</h2>
+    <hr>
+    <form action="">
+            <h3>Fill in the form</h3>
+    <label for="InputFName">First Name:</label>
+    <input id="InputFName" type='text'required> 
+    <br>
+    <br>
+
+    <label for="InputLName">Last Name:</label>
+    <input id="InputLName" type='text'> 
+    <br>
+    <br>
+    <label for='inputEmail'>Email: </label>       
+    <input id='inputEmail' type='email'  required>
+    <br>
+    <br>
+   
+    <label for='inputPassword'>Password: </label>     
+    <input id='inputPassword' type='password' minlength="6" required>
+    <br>
+    <br>
+    <label>Gender:</label>
+    <br>
+    <label for='rMale'>Male:</label>
+    <input name='gender' id='rMale' type='radio' checked>
+    <label for='rFem'>Female:</label>
+    <input id='rFem' name='gender' type='radio' >
+    <label for='rOther'>Other:</label>
+    <input id='rOther' name='gender' type='radio' >
+<br>
+<br>
+    <label>Club:</label>
+    <select>
+            <option value="Sort">Sporting</option>
+            <option value="Benf">Benfica</option>
+            <option value="Port">Porto</option>
+           
+          </select>
+<br>
+<br>
+<input type="checkbox" value="I agree..." required>
+<label for="">I agree.....</label>
+    <br>
+    <br>
+    <button  id="myBtn" onclick="myFunction()">Submit</button>
+</form>
+<hr>
+<p id="demo"></p>
+
+<script>
+
+function myFunction() {
+    // var x=document.getElementById("myBtn").value;
+    document.getElementById("demo").innerHTML="Obrigada!";
+    
+}
+</script>
+</body>
+</html>

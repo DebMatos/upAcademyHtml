@@ -1,0 +1,48 @@
+body {
+    /*comentario*/
+    /* background-color: antiquewhite; */
+    font-size: 1.5rem;
+
+
+}
+
+.img-fundo {
+    background-image: url("http://images.hellokids.com/_uploads/_tiny_galerie/20120416/tne_how-to-draw-a-star-for-kids-step-4.jpg");
+
+    background-position: bottom;
+    background-repeat: vertical;
+    background-size: 80px;
+
+
+}
+
+.border {
+    border: 1px dotted cornflowerblue;
+    width: 100%;
+    margin: auto;
+
+}
+
+#id1 {
+    height: 15vh;
+}
+
+ 
+.imag {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    opacity: 1;
+    border-radius: 60%;
+}
+
+.link{
+    background-color:white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    margin-top: 20px;
+}
