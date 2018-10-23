@@ -1,7 +1,8 @@
 
 
 
-
+// funcoes para o index.html
+// conta os espacoes e mostra 
 function mostrar() {
    
 
@@ -27,3 +28,29 @@ function contar(x) {
    
 }
 
+//ordena
+
+function ordena(num){
+    var count = 0;
+    for (var i = 0; i < num.length; i++) {
+        if (num[i] >num[i+1]) {
+            var extra=num[i]
+            num[i]=num[i+1]
+            num[i+1]=extra
+        }
+        
+    }
+    console.log(num)
+    return num;
+
+}
+
+function mostrar() {
+   
+
+    var ordenar = document.getElementById("ordenar").value;
+   
+
+    document.getElementById("ordenados").innerHTML=ordena(ordenar);
+   
+}
