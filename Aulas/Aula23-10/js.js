@@ -66,3 +66,38 @@ function mostraResultado() {
     document.getElementById("ordenados").innerHTML = ordena(ordenar.split(""));
 
 }
+
+// recebendo uma sequência de números do user coloca um “ - “ entre cada dois números pares e um “#” entre cada dois ímpares.
+
+function analisa(numero) {
+var resultado="";
+    for (var i = 0; i < numero.length - 1; i++) {
+
+        if (parseInt(numero[i])% 2 == 0 && parseInt(numero[i + 1]) % 2 == 0) {
+
+          
+            numero[i] = numero[i]+"-";
+           
+        }
+        if(parseInt(numero[i])% 2 != 0 && parseInt(numero[i + 1]) % 2 != 0){
+            numero[i] = numero[i]+"#";
+        }
+
+    }
+    for (var i = 0; i < numero.length; i++){
+        resultado += numero[i];
+    }
+return resultado;
+
+
+}
+
+function mostraRes() {
+
+
+    var ordenar = document.getElementById("analizar").value;
+
+
+    document.getElementById("resultado").innerHTML = analisa(ordenar.split(""));
+
+}
