@@ -74,7 +74,7 @@ function getTable() {
     <table class="table table-hover text-center">
     <thead class="thead-dark ">
     <tr>
-      <th>Numero do aluno</th>
+      <th>Numero</th>
       <th>Nota</th> 
      
     </tr>
