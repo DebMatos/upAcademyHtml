@@ -8,6 +8,7 @@ $(document).ready(function () {
 var numAlunos;
 var contaClique = 0;
 var ListaAlunos = [];
+var numero=0;
 
 function Aluno(numero, nota) {
     this.numero = numero;
@@ -23,7 +24,7 @@ $("button").click(function () {
     console.log(contaClique);
     console.log(ListaAlunos);
     $("input").val("");
-
+  
 });
 
 function Nalunos() {
@@ -54,33 +55,39 @@ function CriaAlunos() {
         ListaAlunos.push(AlunoNovo);
 
         $("#divTab").html(getTable());
-        novaLinha();
+        $("#divTab").html(novaLinha());
 
 
     }
 
     if (contaClique > numAlunos) {
-        $("#btnSub").hide();
-        $("#lblDinamica").hide();
-        $("#ipt").hide();
+        $("#part1").hide();
+        // $("#lblDinamica").hide();
+        // $("#ipt").hide();
     }
 
 }
 
 function getTable() {
 
-    return `<table style="width:100%">
+    return `
+    <table class="table table-hover text-center">
+    <thead class="thead-dark ">
     <tr>
-      <th>Numero do aluno:</th>
+      <th>Numero do aluno</th>
       <th>Nota</th> 
      
     </tr>
-   
-  </table>`;
+   </thead>
+  </table>`
+  ;
 }
 
 function novaLinha() {
-
-    $("table").append("<tr><td>N</td><td>Nota1</td></tr>");
+for (let index = 0; index < ListaAlunos.length; index++) {
+     $("table").append("<tr class='table-hover text-center'><td>"+ListaAlunos[index].numero+"</td><td>"+ListaAlunos[index].nota+"</td></tr>");
+    
+}
+   
 }
 
