@@ -3,7 +3,7 @@ var numAlunos;
 var contaClique = 0;
 var listaAlunos = [];
 var numero = 0;
-var notaRef=0;
+var notaRef = 0;
 var media = 0;
 
 class Aluno {
@@ -16,7 +16,7 @@ class Aluno {
 
 
 
-$("button").click(function () {
+$("#btn").click(function () {
     contaClique++;
     Nalunos();
     CriaAlunos();
@@ -25,7 +25,7 @@ $("button").click(function () {
     console.log(contaClique);
     console.log(listaAlunos);
     $("input").val("");
-$("input").focus();
+    $("input").focus();
 });
 
 function Nalunos() {
@@ -60,17 +60,17 @@ function CriaAlunos() {
 
 
     }
-    if (contaClique==numAlunos+1) {
+    if (contaClique == numAlunos + 1) {
         $("#lblDinamica").text("Insira a nota do numero de referencia:");
-        notaRef=parseInt($("input").val()); 
+        notaRef = parseInt($("input").val());
     }
-    if (contaClique>numAlunos+1) {
-        
-       
+    if (contaClique > numAlunos + 1) {
+
+
         // $("#lblDinamica").hide();
-        $("#mostraMedia").html("A media é "+ Media()+ " sendo a nota de referencia "+ notaRef+" entao existe uma variacao de " +Desvio()+"%");
+        $("#mostraMedia").html("A media é " + Media() + " sendo a nota de referencia " + notaRef + " entao existe uma variacao de " + Desvio() + "%");
         $("#part1").hide();
-        $("#mostraMedia").append( '<p class="text-center" ><button id="btnSub" class="btn btn-success">Refresh</button></p>');
+        $("#mostraMedia").append('<p class="text-center" ><button id="btnSub" class="btn btn-success">Refresh</button></p>');
     }
 
 }
@@ -101,26 +101,28 @@ function novaLinha() {
 }
 
 function Media() {
- 
 
-    for (var i=0; i < listaAlunos.length; i++) {
 
-       media += parseInt(listaAlunos[i].nota);
+    for (var i = 0; i < listaAlunos.length; i++) {
+
+        media += parseInt(listaAlunos[i].nota);
     }
-    console.log(media,listaAlunos.l);
-     return (media / listaAlunos.length);
-    
+    console.log(media, listaAlunos.l);
+    return (media / listaAlunos.length);
+
 }
 
 
 function Desvio() {
-   
-var desvioRef=(media-notaRef)/media*100;
-    
-     return desvioRef;
-    
+
+    var desvioRef = (media - notaRef) / media * 100;
+
+    return desvioRef;
+
 }
 
+$("#btnSub").click (RefreshPag);
+
 function RefreshPag() {
-    location.reload();
-}
+    location.reload()
+};
