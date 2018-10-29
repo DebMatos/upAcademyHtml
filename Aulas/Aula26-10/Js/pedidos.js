@@ -17,43 +17,17 @@ class produto {
 var nome = "";
 var arrayDescricao = [];
 var pedidos=[];
-var index=0;
+
 function main() {
 
-    // var pedidos = [
-    //     (pedido.id = 1,
-    //         pedido.nomeCliente = "Miguel",
-    //         pedido.descricao = [{ nome: "BigMac", extra: "natura" }, { nome: "Batatas", extra: "sem sal" }]),
-    //     (pedido.id = 2,
-    //         pedido.nomeCliente = "Pedro",
-    //         pedido.descricao = [{ nome: "Chave de fendas" }, { nome: "Batatas", extra: "sem sal" }]),
-    //     (pedido.id = 3,
-    //         pedido.nomeCliente = "Antonio",
-    //         pedido.descricao = [{ nome: "Arroz", extra: "Basmati" }])
-    // ]
+    
 
-
-    // var pedidos = [
-    //     {
-    //         id: 1,
-    //         nomeCliente: "Miguel",
-    //         descricao: [{ nome: "BigMac", extra: "natura" }, { nome: "Batatas", extra: "sem sal" }]
-    //     },
-    //     {
-    //         id: 2, nomeCliente: "Pedro",
-    //         descricao: [{ nome: "Chave de fendas" }, { nome: "Batatas", extra: "sem sal" }]
-    //     },
-    //     {
-    //         id: 3, nomeCliente: "Antonio", descricao: [{ nome: "Arroz", extra: "Basmati" }]
-    //     }
-    // ]
-
-    GetExtra(pedidos);
+   // GetExtra(pedidos);
 
 }
 
 function changetextbox() {
-    //var checkBox=document.getElementById('cbExtra')
+   
 
     if ($("#cbExtra").prop('checked') == true) {
 
@@ -92,7 +66,15 @@ function AddProd() {
     var nome = $("#Nome").val();
     if (nome != "") {
 
+        <table id="tab" class="table table-hover text-center">
+        <thead class="thead-dark ">
+            <tr>
+                <th>Produto</th>
+                <th>Informação especial</th>
 
+            </tr>
+        </thead>
+    </table>
         $("#Nome").attr("disabled", "disabled");
         if (nProduto != "") {
             $("#tab").append("<tr class='table-hover text-center'><td>" + nProduto + "</td><td>" + especial + "</td></tr>");
@@ -103,18 +85,39 @@ function AddProd() {
 
             arrayDescricao.push(produto1);
             console.log(arrayDescricao);
+            
         }
     }
+    limpaArtigo();
 }
 
 
 function AddPedido(){
-    index+=1;
+    var date=new Date;
+    var index=date.getUTCMilliseconds();
     pedido=new pedido;
     pedido.id=index;
     pedido.nomeCliente=$("#Nome").val();
     pedido.descricao=arrayDescricao;
 
-pedidos.push(pedido);
+   pedidos.push(pedido);
     console.log(pedidos);
+    limpaTudo();
+}
+
+function limpaArtigo(){
+    $("#pedido1").val('');
+    $("#extra").val('');
+    $("#cbExtra").prop('checked',false);
+    if ($("#cbExtra").prop('checked') == true) {
+
+        $("#extra").attr("disabled", "disabled");
+    }
+}
+
+function limpaTudo(){
+    limpaArtigo();
+    $("#Nome").val('');
+    $("#tab").remove();
+    
 }

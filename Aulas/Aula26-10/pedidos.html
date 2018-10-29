@@ -14,55 +14,60 @@
 
 <body>
 
-    <header style="background-color:tomato; color: white; height: 20%" class="text-center">
+    <header style="background-colorrgb(52, 17, 247); color: white;" class="text-center align-middle p-3">
         <h1>Faça aqui o seu pedido</h1>
     </header>
-    <div id='formulario' >
+    <div id='formulario'>
         <div class="form-row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8 container">
                 <div class="container"></div>
                 <div class="form-group">
                     <label for="Nome">Nome</label><br>
-                    <input id='Nome' type="text" class="form-control" placeholder="Escreva o seu nome" required style="width:70%">
+                    <input id='Nome' type="text" class="form-control" placeholder="Escreva o seu nome" required style="width:75%">
                 </div>
 
                 <div class="form-group">
                     <label>O que deseja?</label><br>
-                    <input id='pedido1' class="form-control" type="text" placeholder="Escreva o nome do produto" required style=" display: inline;" >
-                    <input id='cbExtra' class="form-control" type="checkbox" onchange="changetextbox()">Pedido especial
+                    <input id='pedido1' class="form-control" type="text" placeholder="Escreva o nome do produto"
+                        required style="width:75% ;">
+                    <input id='cbExtra' type="checkbox" onchange="changetextbox()">Pedido especial
                 </div>
+                <div class="form-row p-0">
+                    <div class="form-group col-sm-9 ">
+                        <input id='extra' type="text" class="form-control" placeholder="O que gostaria de alterar" disabled > 
+                    </div>
+                    <div class="form-group col-sm-2">
 
-                <div class="form-group">
-                    <input id='extra' type="text" class="form-control" placeholder="O que gostaria de alterar"  disabled style=" width: 70%">
-                    <button id="adicionar" class="btn btn-info" onclick="AddProd()">+</button>
+                        <button id="adicionar" class="btn btn-info"  onclick="AddProd()">+</button>
 
+                    </div>
 
                 </div>
             </div>
-                <div id='divTab' class="col-sm-6 container">
-                    <table id="tab" class="table table-hover text-center" >
-                        <thead class="thead-dark ">
-                            <tr>
-                                <th>Produto</th>
-                                <th>Informação especial</th>
+            <div id='divTab' class="col-sm-6 container">
+                <table id="tab" class="table table-hover text-center">
+                    <thead class="thead ">
+                        <tr>
+                            <th>Produto</th>
+                            <th>Informação especial</th>
 
-                            </tr>
-                        </thead>
-                    </table>
-
-                </div>
+                        </tr>
+                    </thead>
+                </table>
 
             </div>
-            <div class="col-sm-2"></div>
+
         </div>
+        <div class="col-sm-2"></div>
+    </div>
 
 
-        <div class="row text-center">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8"><button id="btnExtras" class="btn btn-success" onclick="AddPedido()">Submeter pedido</button></div>
-            <div class="col-sm-2"></div>
-        </div>
+    <div class="row text-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8"><button id="btnExtras" class="btn btn-info" onclick="AddPedido()">Submeter pedido</button></div>
+        <div class="col-sm-2"></div>
+    </div>
 
     </div>
 
