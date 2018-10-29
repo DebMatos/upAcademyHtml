@@ -1,17 +1,73 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Pedidos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-  
-</head>
-<body>
-    <button id="btnExtras" onclick="main()">Mostra</button>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>  
+
+</head>
+
+<body>
+
+    <header style="background-color:tomato; color: white; height: 20%" class="text-center">
+        <h1>Faça aqui o seu pedido</h1>
+    </header>
+    <div id='formulario' class="container">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <label for="Nome">Nome</label><br>
+                    <input id='Nome' type="text" placeholder="Escreva o seu nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label>O que deseja?</label><br>
+                    <input id='pedido1' type="text" placeholder="Escreva o nome do produto" required >
+                    <input id='cbExtra' type="checkbox" onchange="changetextbox()">Pedido especial
+                </div>
+
+                <div class="form-group">
+                    <input id='extra' type="text" placeholder="O que gostaria de alterar"  disabled>
+                    <button id="adicionar" onclick="AddProd()">+</button>
+
+
+                </div>
+
+                <div id='divTab' class="container">
+                    <table id="tab" class="table table-hover text-center">
+                        <thead class="thead-dark ">
+                            <tr>
+                                <th>Produto</th>
+                                <th>Informação especial</th>
+
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+
+        <div class="row text-center">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8"><button id="btnExtras" onclick="AddPedido()">Submeter pedido</button></div>
+            <div class="col-sm-2"></div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="Js/pedidos.js"></script>
 </body>
-</html> 
+
+</html>
