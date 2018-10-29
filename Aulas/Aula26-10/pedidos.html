@@ -17,30 +17,31 @@
     <header style="background-color:tomato; color: white; height: 20%" class="text-center">
         <h1>Faça aqui o seu pedido</h1>
     </header>
-    <div id='formulario' class="container">
+    <div id='formulario' >
         <div class="form-row">
             <div class="col-sm-2"></div>
-            <div class="col-sm-8">
+            <div class="col-sm-8 container">
+                <div class="container"></div>
                 <div class="form-group">
                     <label for="Nome">Nome</label><br>
-                    <input id='Nome' type="text" placeholder="Escreva o seu nome" required>
+                    <input id='Nome' type="text" class="form-control" placeholder="Escreva o seu nome" required style="width:70%">
                 </div>
 
                 <div class="form-group">
                     <label>O que deseja?</label><br>
-                    <input id='pedido1' type="text" placeholder="Escreva o nome do produto" required >
-                    <input id='cbExtra' type="checkbox" onchange="changetextbox()">Pedido especial
+                    <input id='pedido1' class="form-control" type="text" placeholder="Escreva o nome do produto" required style=" display: inline;" >
+                    <input id='cbExtra' class="form-control" type="checkbox" onchange="changetextbox()">Pedido especial
                 </div>
 
                 <div class="form-group">
-                    <input id='extra' type="text" placeholder="O que gostaria de alterar"  disabled>
-                    <button id="adicionar" onclick="AddProd()">+</button>
+                    <input id='extra' type="text" class="form-control" placeholder="O que gostaria de alterar"  disabled style=" width: 70%">
+                    <button id="adicionar" class="btn btn-info" onclick="AddProd()">+</button>
 
 
                 </div>
-
-                <div id='divTab' class="container">
-                    <table id="tab" class="table table-hover text-center">
+            </div>
+                <div id='divTab' class="col-sm-6 container">
+                    <table id="tab" class="table table-hover text-center" >
                         <thead class="thead-dark ">
                             <tr>
                                 <th>Produto</th>
@@ -59,7 +60,7 @@
 
         <div class="row text-center">
             <div class="col-sm-2"></div>
-            <div class="col-sm-8"><button id="btnExtras" onclick="AddPedido()">Submeter pedido</button></div>
+            <div class="col-sm-8"><button id="btnExtras" class="btn btn-success" onclick="AddPedido()">Submeter pedido</button></div>
             <div class="col-sm-2"></div>
         </div>
 
