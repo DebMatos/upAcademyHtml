@@ -13,63 +13,118 @@
 </head>
 
 <body>
-<nav></nav>
-    <header  class="text-center align-middle p-3">
-        <h1>Faça aqui o seu pedido</h1>
-    </header>
-    <div id='formulario'>
-        <div class="form-row">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link " href="#novoP">Faca o pedido</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#listaP">Lista de pedidos</a>
+            </li>
+        </ul>
+    </nav>
+    <section id="novoP" style="height:150vh">
+        <h1 class="text-center" style="padding-top:70px;">Faça aqui o seu pedido</h1>
+
+        <div id='formulario'>
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8 container">
+                    <div class="container"></div>
+                    <div class="form-group">
+                        <label for="Nome">Nome</label><br>
+                        <input id='Nome' type="text" class="form-control" placeholder="Escreva o seu nome" required
+                            style="width:75%">
+                    </div>
+
+                    <div class="form-group">
+                        <label>O que deseja?</label><br>
+                        <input id='pedido1' class="form-control" type="text" placeholder="Escreva o nome do produto"
+                            required style="width:75% ;">
+                        <input id='cbExtra' type="checkbox" onchange="changeTextBox()">Pedido especial
+                    </div>
+                    <div class="form-row p-0">
+                        <div class="form-group col-sm-9 ">
+                            <input id='extra' type="text" class="form-control" placeholder="O que gostaria de alterar"
+                                disabled>
+                        </div>
+                        <div class="form-group col-sm-2">
+
+                            <button id="adicionar" class="btn btn-primary" onclick="AddProd()">+</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div id='divTab' class="col-sm-6 container">
+                    <table id="tab" class="table table-hover text-center">
+                        <thead class="thead ">
+                            <tr>
+                                <th>Produto</th>
+                                <th>Informação especial</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tabB">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-8 container">
-                <div class="container"></div>
-                <div class="form-group">
-                    <label for="Nome">Nome</label><br>
-                    <input id='Nome' type="text" class="form-control" placeholder="Escreva o seu nome" required style="width:75%">
+        </div>
+
+
+        <div class="row text-center">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8"><button id="btnExtras" class="btn btn-primary" onclick="AddPedido()">Submeter pedido</button></div>
+            <div class="col-sm-2"></div>
+        </div>
+    </section>
+    <section id="listaP" style="height:100vh">
+        <h1 class="text-center" style="padding-top:70px;">Pedidos</h1>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6 container">
+
+
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
                 </div>
+                <select class="custom-select" id="inputGroupSelect01">
 
-                <div class="form-group">
-                    <label>O que deseja?</label><br>
-                    <input id='pedido1' class="form-control" type="text" placeholder="Escreva o nome do produto"
-                        required style="width:75% ;">
-                    <input id='cbExtra' type="checkbox" onchange="changetextbox()">Pedido especial
-                </div>
-                <div class="form-row p-0">
-                    <div class="form-group col-sm-9 ">
-                        <input id='extra' type="text" class="form-control" placeholder="O que gostaria de alterar" disabled > 
-                    </div>
-                    <div class="form-group col-sm-2">
-
-                        <button id="adicionar" class="btn btn-primary"  onclick="AddProd()">+</button>
-
-                    </div>
-
-                </div>
+                    <option selected value="1">Todos os pedidos</option>
+                    <option value="2">Pedidos especiais</option>
+                    <option value="3">Pedidos simples</option>
+                </select>
             </div>
-            <div id='divTab' class="col-sm-6 container">
-                <table id="tab" class="table table-hover text-center">
-                    <thead class="thead ">
-                        <tr>
-                            <th>Produto</th>
-                            <th>Informação especial</th>
+        </div>
+        <div id='tabFiltro' class="col-sm-6 container">
+            <table id="tabF" class="table table-hover text-center">
+                <thead class="thead ">
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Produto</th>
+                        <th>Informação especial</th>
 
-                        </tr>
-                    </thead>
-                </table>
+                    </tr>
+                </thead>
+                <tbody id="tabFB">
 
-            </div>
+                </tbody>
+            </table>
 
         </div>
-        <div class="col-sm-2"></div>
-    </div>
 
 
-    <div class="row text-center">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8"><button id="btnExtras" class="btn btn-primary" onclick="AddPedido()">Submeter pedido</button></div>
-        <div class="col-sm-2"></div>
-    </div>
 
-    </div>
+
+        <div class="col-sm-2"></div>
+
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
