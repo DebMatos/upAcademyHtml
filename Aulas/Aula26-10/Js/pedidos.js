@@ -1,7 +1,6 @@
 
 class pedido {
-    constructor(id, name, descricao) {
-        this.id = id;
+    constructor(name, descricao) {
         this.name = name;
         this.descricao = descricao;
     }
@@ -81,7 +80,7 @@ function AddProd() {
 
             linhasTabela("#tabB", produto1)
             arrayDescricao.push(produto1);
-            console.log(arrayDescricao);
+            // console.log(arrayDescricao);
 
         }
     }
@@ -100,20 +99,20 @@ function AddPedido() {
     if ($("#Nome").val != '') {
         var date = new Date;
         var index = date.getUTCMilliseconds();
-        p = new pedido;
-        p.id = index;
+        let p = new pedido;
         p.name = $("#Nome").val();
         p.descricao = arrayDescricao;
 
+        console.log(p);
         pedidos.push(p);
-        console.log(pedidos);
+        postarNaApi(p);
 
         limpaTudo();
         refreshTable();
-        todasFaturas();postarNaApi(p);
+        todasFaturas();
     }
 
-    
+
 
     arrayDescricao = [];
 }
@@ -194,12 +193,12 @@ function todasFaturas() {
 function faturaById() {
     $("#divFaturas").html('');
     $("#divFaturas").html('  <p id="id">Id:</p><p id="nCliente">Nome Cliente:</p><table id="tabFaturas" class="table table-hover text-center"><thead class="thead "><tr><th>Produto</th></th><th>Informação especial</th></tr></thead><tbody id="tabBFaturas"></tbody></table')
-    
-    if(($('#pesquisa').val() =="")){
+
+    if (($('#pesquisa').val() == "")) {
         todasFaturas();
     }
-    
-    
+
+
     for (var i = 0; i < pedidos.length; i++) {
         var pActual = pedidos[i];
         if ($('#pesquisa').val() == pActual.id) {
@@ -209,41 +208,48 @@ function faturaById() {
 
                 $("#tabBFaturas").append("<tr class='table-hover text-center'><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
             }
-            
-            
+
+
         }
-        
-            
+
+
     }
 
-    
-      
-    
-}   
 
-function getInfo(){
+
+
+}
+
+function getInfo() {
     $.ajax({
-    
-    url:"http://192.168.0.122:3000/api/orders",
-    type:'GET',
-    contentType:'aplication/json',
-    success:function(data){
-        console.log(data);
-    }})
+
+        url: "http://192.168.0.122:3000/api/orders",
+        type: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            console.log(data);
+        }
+    })
 };
 
+var testes;
+function postarNaApi(fatura) {
 
-function postarNaApi(fatura){
-  
     var myJSON = JSON.stringify(fatura);
+    console.log(myJSON)
     $.ajax({
-   url:"http://192.168.0.122:3000/api/orders", 
-    data:myJSON,
-    type:'POST',
-    contentType:'aplication/json',
-    success:function(data,status){
-        alert("Data: " + data + "\nStatus: " + status);
-    }})
+        url: "http://192.168.0.122:3000/api/orders",
+        type: 'POST',
+        contentType: 'application/json',
+        data: myJSON,
+        success: function (data, status) {
+            alert("Data: " + data + "\nStatus: " + status);
+        },
+        error: function (data) {
+            testes = data;
+        }
+        
+    })
 };
-   
+
 
