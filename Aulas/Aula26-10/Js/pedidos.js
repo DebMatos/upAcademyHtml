@@ -52,7 +52,7 @@ function GetExtra() {
 
             if (order.extra) {
 
-               $("#tabFB").append("<tr class='table-hover text-center'><td>" + pActual.nomeCliente + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
+                $("#tabFB").append("<tr class='table-hover text-center'><td>" + pActual.nomeCliente + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
             }
 
         }
@@ -67,7 +67,7 @@ function AddProd() {
     //var nProduto = paramentrada.nome;
     //var especial = paramentrada.extra;
     var nome = $("#Nome").val();
-    
+
     if (nome != "") {
 
 
@@ -96,7 +96,7 @@ function linhasTabela(idTBody, produto) {
 
 
 function AddPedido() {
-  
+
     if ($("#Nome").val != '') {
         var date = new Date;
         var index = date.getUTCMilliseconds();
@@ -107,22 +107,22 @@ function AddPedido() {
 
         pedidos.push(p);
         console.log(pedidos);
-     
+
         limpaTudo();
         refreshTable();
         todasFaturas();
-    }  
-    arrayDescricao=[];
+    }
+    arrayDescricao = [];
 }
 
 function limpaArtigo() {
     $("#pedido1").val('');
     $("#extra").val('');
     $("#cbExtra").prop('checked', false);
-    
 
-        $("#extra").attr("disabled", true);
-    
+
+    $("#extra").attr("disabled", true);
+
 }
 
 function limpaTudo() {
@@ -130,19 +130,19 @@ function limpaTudo() {
     $("#Nome").val('');
     $("#tabB").html('');
     $("#Nome").attr("disabled", false);
-   
+
 }
 
 function refreshTable() {
     var opt = $("#inputGroupSelect01 option:selected").val()
-  
-    
+
+
     switch (opt) {
         case '1':
             todosPedidos();
             break;
         case '2':
-             GetExtra();
+            GetExtra();
             break;
         case '3':
 
@@ -151,16 +151,16 @@ function refreshTable() {
         default:
             break;
     }
-    
+
 }
 $("#inputGroupSelect01").change(function () {
-   refreshTable();
+    refreshTable();
 
 });
 
 function todosPedidos() {
     $("#tabFB").html('');
-    
+
     for (var i = 0; i < pedidos.length; i++) {
         var pActual = pedidos[i];
         for (var j = 0; j < pActual.descricao.length; j++) {
@@ -188,3 +188,18 @@ function todasFaturas() {
 
 }
 
+function faturaById() {
+    $("#divFaturas").html('');
+    $("#divFaturas").html('  <p id="id">Id:</p><p id="nCliente">Nome Cliente:</p><table id="tabFaturas" class="table table-hover text-center"><thead class="thead "><tr><th>Produto</th></th><th>Informação especial</th></tr></thead><tbody id="tabBFaturas"></tbody></table')
+    for (var i = 0; i < pedidos.length; i++) {
+        var pActual = pedidos[i];
+        if ($('#pesquisa').val() == pActual.id) {
+            $('#id').append(pActual.id);
+            $('#nCliente').append(pActual.nomeCliente);
+            for (var j = 0; j < pActual.descricao.length; j++) {
+
+                $("#tabBFaturas").append("<tr class='table-hover text-center'><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
+            }
+        }
+    }
+}   
