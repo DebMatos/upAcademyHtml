@@ -37,8 +37,8 @@ function changeTextBox() {
     }
 }
 
-function GetExtra(pedidos) {
-
+function GetExtra() {
+    $("#tabFB").html('');
     var pComExtra = [];
 
     for (var i = 0; i < pedidos.length; i++) {
@@ -50,8 +50,9 @@ function GetExtra(pedidos) {
             var order = pActual.descricao[j];
 
 
-            if (order.extra && pComExtra.indexOf(pActual) == -1) {
-                pComExtra.push(pActual);
+            if (order.extra) {
+
+               $("#tabFB").append("<tr class='table-hover text-center'><td>" + pActual.nomeCliente + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
             }
 
         }
@@ -66,6 +67,7 @@ function AddProd() {
     //var nProduto = paramentrada.nome;
     //var especial = paramentrada.extra;
     var nome = $("#Nome").val();
+    
     if (nome != "") {
 
 
@@ -94,6 +96,7 @@ function linhasTabela(idTBody, produto) {
 
 
 function AddPedido() {
+  
     if ($("#Nome").val != '') {
         var date = new Date;
         var index = date.getUTCMilliseconds();
@@ -104,19 +107,22 @@ function AddPedido() {
 
         pedidos.push(p);
         console.log(pedidos);
+     
         limpaTudo();
         refreshTable();
-    }
+        todasFaturas();
+    }  
+    arrayDescricao=[];
 }
 
 function limpaArtigo() {
     $("#pedido1").val('');
     $("#extra").val('');
     $("#cbExtra").prop('checked', false);
-    if ($("#cbExtra").prop('checked') == true) {
+    
 
         $("#extra").attr("disabled", true);
-    }
+    
 }
 
 function limpaTudo() {
@@ -129,14 +135,14 @@ function limpaTudo() {
 
 function refreshTable() {
     var opt = $("#inputGroupSelect01 option:selected").val()
-    console.log(opt);
+  
     
     switch (opt) {
         case '1':
             todosPedidos();
             break;
         case '2':
-
+             GetExtra();
             break;
         case '3':
 
@@ -153,7 +159,8 @@ $("#inputGroupSelect01").change(function () {
 });
 
 function todosPedidos() {
-    console.log('ola');
+    $("#tabFB").html('');
+    
     for (var i = 0; i < pedidos.length; i++) {
         var pActual = pedidos[i];
         for (var j = 0; j < pActual.descricao.length; j++) {
@@ -164,5 +171,20 @@ function todosPedidos() {
 
     }
 
+}
+
+function todasFaturas() {
+    $("#divFaturas").html('');
+    $("#divFaturas").html('<table id="tabFaturas" class="table table-hover text-center"><thead class="thead "><tr><th>Id</th><th>Nome produto</th><th>Extra</th></tr></thead><tbody id="tabBFaturas"></tbody>');
+    for (var i = 0; i < pedidos.length; i++) {
+        var pActual = pedidos[i];
+        for (var j = 0; j < pActual.descricao.length; j++) {
+
+            $("#tabFaturas").append("<tr class='table-hover text-center'><td>" + pActual.id + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
+        }
+
+
+    }
 
 }
+
