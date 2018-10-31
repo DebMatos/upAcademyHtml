@@ -1,8 +1,8 @@
 
 class pedido {
-    constructor(id, nomeCliente, descricao) {
+    constructor(id, name, descricao) {
         this.id = id;
-        this.nomeCliente = nomeCliente;
+        this.name = name;
         this.descricao = descricao;
     }
 }
@@ -52,7 +52,7 @@ function GetExtra() {
 
             if (order.extra) {
 
-                $("#tabFB").append("<tr class='table-hover text-center'><td>" + pActual.nomeCliente + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
+                $("#tabFB").append("<tr class='table-hover text-center'><td>" + pActual.name + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
             }
 
         }
@@ -102,7 +102,7 @@ function AddPedido() {
         var index = date.getUTCMilliseconds();
         p = new pedido;
         p.id = index;
-        p.nomeCliente = $("#Nome").val();
+        p.name = $("#Nome").val();
         p.descricao = arrayDescricao;
 
         pedidos.push(p);
@@ -110,8 +110,11 @@ function AddPedido() {
 
         limpaTudo();
         refreshTable();
-        todasFaturas();
+        todasFaturas();postarNaApi(p);
     }
+
+    
+
     arrayDescricao = [];
 }
 
@@ -165,7 +168,7 @@ function todosPedidos() {
         var pActual = pedidos[i];
         for (var j = 0; j < pActual.descricao.length; j++) {
 
-            $("#tabFB").append("<tr class='table-hover text-center'><td>" + pActual.nomeCliente + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
+            $("#tabFB").append("<tr class='table-hover text-center'><td>" + pActual.name + "</td><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
         }
 
 
@@ -191,15 +194,56 @@ function todasFaturas() {
 function faturaById() {
     $("#divFaturas").html('');
     $("#divFaturas").html('  <p id="id">Id:</p><p id="nCliente">Nome Cliente:</p><table id="tabFaturas" class="table table-hover text-center"><thead class="thead "><tr><th>Produto</th></th><th>Informação especial</th></tr></thead><tbody id="tabBFaturas"></tbody></table')
+    
+    if(($('#pesquisa').val() =="")){
+        todasFaturas();
+    }
+    
+    
     for (var i = 0; i < pedidos.length; i++) {
         var pActual = pedidos[i];
         if ($('#pesquisa').val() == pActual.id) {
             $('#id').append(pActual.id);
-            $('#nCliente').append(pActual.nomeCliente);
+            $('#nCliente').append(pActual.name);
             for (var j = 0; j < pActual.descricao.length; j++) {
 
                 $("#tabBFaturas").append("<tr class='table-hover text-center'><td>" + pActual.descricao[j].nome + "</td><td>" + pActual.descricao[j].extra + "</td></tr>");
             }
+            
+            
         }
+        
+            
     }
+
+    
+      
+    
 }   
+
+function getInfo(){
+    $.ajax({
+    
+    url:"http://192.168.0.122:3000/api/orders",
+    type:'GET',
+    contentType:'aplication/json',
+    success:function(data){
+        console.log(data);
+    }})
+};
+
+
+function postarNaApi(fatura){
+  
+    var myJSON = JSON.stringify(fatura);
+    $.ajax({
+   url:"http://192.168.0.122:3000/api/orders", 
+    data:myJSON,
+    type:'POST',
+    contentType:'aplication/json',
+    success:function(data,status){
+        alert("Data: " + data + "\nStatus: " + status);
+    }})
+};
+   
+
