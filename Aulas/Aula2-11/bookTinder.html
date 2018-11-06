@@ -6,53 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BookTinder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <script src="main.js"></script>
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-                <h1 class="text-center" >TinderBooks</h1>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="height:15%; background-image:url(https://static1.squarespace.com/static/5733f31bb6aa60fc5fe236f0/t/5734f77940261dc8813e1d89/1463089022160/)">
 
-       </nav>
-    <div class="container" >
+
+        <h1 class="text-center">BookTinder</h1>
+
+        <div class="form-inline my-2 my-lg-0 ">
+
+            <input id="termo" class="form-control  " type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-lg-0" type="button" onclick="getInfo()">Search</button>
+        </div>
+    </nav>
+
+  
         <div class="row">
             <div class="col-sm-3">
 
             </div>
-            <div class="col-sm-6">
-                <div class="card" style=" padding-top:70px;">
-                    <div class="card-header">
-                        Titulo
+            <div class="col-sm-6" style=" padding-top:20vh;">
+
+
+                <div class="card"> 
+                    <div class="row" style="margin-bottom: 2%">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6 mx-auto card-img-top"  > <img id="imagemB" src="" alt="Card image cap"></div>
+                        <div class="col-sm-3"></div>
                     </div>
-                  
-                    <div class="card"> 
-                         <img id="imagemB" class="card-image" src="" alt="Card image cap">
-                        <h5 class="card-title text-center">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <div class="row" style="margin-bottom: 2%">
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-3"><button onclick="getInfo()" class="btn btn-success ">Like</button></div>
-                          
-                            <div class="col-sm-3"><button class="btn btn-danger">Dislike</button></div>
-                            <div class="col-sm-3"></div>
-                        </div>
+                    <h5 id="titulo" class="card-title"></h5>
+                    <h5 id="autor" class="card-title"></h5>
+                    <textarea rows="4" cols="65" id="des" class="card-text" style="border:none;"></textarea>
+                    </textarea>
+                    <div class="row" style="margin-bottom: 2%">
+                        <div class="col-sm-3"></div>
+                        <div col-sm-3><button class="btn btn-success" onclick="Like()">Like</button></div>
+
+                        <div class="col-sm-3"><button class="btn btn-danger" oncl>Dislike</button></div>
+                        <div class="col-sm-3"></div>
                     </div>
                 </div>
+
             </div>
             <div class="col-sm-3">
 
             </div>
         </div>
 
-    </div>
+ 
 
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
