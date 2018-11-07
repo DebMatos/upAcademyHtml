@@ -38,7 +38,7 @@ var num=0;
 
                     if (data.items[i].volumeInfo.imageLinks!= undefined) {
 
-                        var imagem = data.items[i].volumeInfo.imageLinks.smallThumbnail;
+                        var imagem = data.items[i].volumeInfo.imageLinks.thumbnail;
                         var titulo = data.items[i].volumeInfo.title;
                         // var categoria = data.items[i].volumeInfo.categories[0];
                         var autor = data.items[i].volumeInfo.authors[0];
