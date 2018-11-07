@@ -17,12 +17,13 @@ class Livro {
 
 
 var listaLivros = [];
-var busca = "a";
-
+//var busca = "a";
+var listaLikes=[];
+var listaDisLikes=[];
 
 function getInfo() {
     var maxRes = 40;
-    busca = $("#termo").val();
+   var busca = $("#termo").val();
 var num=0;
     $.ajax({
 
@@ -67,10 +68,24 @@ num+=41;
 }
 
 function Like() {     
-    console.log(listaLivros);
+   
    
     listaLivros[0].addLike();
- console.log(listaLivros[0]);
+   
+     listaLikes.push(listaLivros[0]);
+     console.log(listaLikes);
+    listaLivros.shift();  
+
+    mostraCard();
+}
+
+function disLike() {     
+   
+   
+    listaLivros[0].addLike();
+   
+     listaDisLikes.push(listaLivros[0]);
+     console.log(listaDisLikes);
     listaLivros.shift();  
 
     mostraCard();
@@ -80,9 +95,9 @@ function mostraCard() {
 
 
     $("#imagemB").attr("src", listaLivros[0].imagem);
-    $("#titulo").text("Title: " + listaLivros[0].titulo);
+    $("#titulo").text( listaLivros[0].titulo);
     //$("#categoria").text(l.categoria);
     $("#des").text(listaLivros[0].descricao);
-    $("#autor").text("Author: " + listaLivros[0].autor);
+    $("#autor").text("By " + listaLivros[0].autor);
 
 }
