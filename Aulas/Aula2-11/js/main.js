@@ -114,7 +114,7 @@ function mostraCard() {
 
 }
 
-function linhasTabela(idTBody, livro) {
+/* function linhasTabela(idTBody, livro) {
 
     $(idTBody).append("<tr class='linha' class='table-hover '><td>" + livro.titulo + "</td><td>" + livro.autor + "</td><td>" + livro.likes + "</td></tr>");
-}
+} */

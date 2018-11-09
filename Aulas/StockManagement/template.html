@@ -24,32 +24,32 @@
   -->
       <div class="logo">
         <a href="" class="simple-text logo-normal">
-         Stock Management
+          Stock Management
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="javascript:void(0)">
+          <li class="nav-item active " id="navDash">
+            <a class="nav-link" href="#">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="javascript:void(1)">
-                <i class="material-icons">P</i>
-                <p>Products</p>
-               
-              </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(3)">
-                   <i class="material-icons">S</i> 
-                  <p>Shelves</p>
-                 
-                </a>
-              </li>
-          <!-- your sidebar here -->
+          <li class="nav-item " id="navProd">
+            <a class="nav-link" href="#">
+              <i class="material-icons">P</i>
+              <p>Products</p>
+
+            </a>
+          </li>
+          <li class="nav-item" id="navShel">
+            <a class="nav-link" href="#">
+              <i class="material-icons">S</i>
+              <p>Shelves</p>
+
+            </a>
+          </li>
+
         </ul>
       </div>
     </div>
@@ -58,9 +58,10 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <p class="navbar-brand" href="#">Dashboard</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -76,26 +77,28 @@
                   </p>
                 </a>
               </li>
-              <!-- your navbar here -->
+
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
       <div class="content">
-        <div class="container-fluid">
+        <div class="container-fluid" id="container">
           <!-- your content here -->
+         
+
         </div>
       </div>
       <footer class="footer">
         <div class="container-fluid">
-         
+
           <div class="copyright float-right">
             &copy;
             <script>
               document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            
+            </script>, made with <i class="material-icons">favorite</i>
+
           </div>
           <!-- your footer here -->
         </div>
@@ -103,7 +106,9 @@
     </div>
   </div>
   <!--   Core JS Files   -->
+
   <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="Js/main.js"></script>
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="https://unpkg.com/default-passive-events"></script>
@@ -111,16 +116,15 @@
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
   <!-- Chartist JS -->
   <script src="./assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/material-dashboard.js?v=2.1.0"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  
- 
+
+
 </body>
 
 </html>
