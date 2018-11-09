@@ -8,20 +8,6 @@ $(".nav-item").on("click", function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Dashboard
 $("#navDash").on("click", function () {
     $(".navbar-brand").text("Dashboard");
@@ -66,14 +52,11 @@ function linhasTabShelves(idTBody, shelf) {
 
 
 
-
-
-
 // Shelves
 $("#navShel").on("click", function () {
     $(".navbar-brand").text("Shelves");
 
-    $("#container").html('<div class="row"><div class="col-md-8"><div id="tab"><table id="datatable" class="table  table-bordered " cellspacing="0" width="100%"><thead class="text-center thead-light "><tr><th>Id</th><th>Capacity</th><th>Product Id</th><th>Rent Price</th></tr></thead><tbody id="tBodyP" class="text-center "></tbody></table></div></div><div class="col-md-2"><button type="button" class="btn btn-info">Update</button><button type="button" class="btn btn-danger">DELETE</button></div></div>');
+    $("#container").html('<div class="row"><div class="col-md-8"><div id="tab"><table id="datatable" class="table  table-bordered " cellspacing="0" width="100%"><thead class="text-center thead-light "><tr><th>Id</th><th>Capacity</th><th>Product Id</th><th>Rent Price</th></tr></thead><tbody id="tBodyP" class="text-center "></tbody></table></div></div><div class="col-md-2"><button type="button" class="btn btn-warning">Insert</button><button type="button" class="btn btn-info">Update</button><button type="button" class="btn btn-danger">DELETE</button></div></div>');
     getShelves();
 });
 
