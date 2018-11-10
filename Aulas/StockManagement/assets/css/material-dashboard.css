@@ -159,7 +159,7 @@ sup {
 }
 
 a {
-  color: #9c27b0;
+  color:#008697;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
@@ -18675,7 +18675,7 @@ Copyright (c) 2015 Daniel Eden
 .dark-edition .btn,
 .dark-edition .btn.btn-default {
   color: #fff;
-  background-color: #9095a2;
+  background-color: #909aa2;
   border-color: #9095a2;
   box-shadow: 0 2px 2px 0 rgba(144, 149, 162, 0.14), 0 3px 1px -2px rgba(144, 149, 162, 0.2), 0 1px 5px 0 rgba(144, 149, 162, 0.12);
 }
@@ -18872,12 +18872,12 @@ Copyright (c) 2015 Daniel Eden
 .dark-edition .btn.btn-primary:focus,
 .dark-edition .btn.btn-primary:active,
 .dark-edition .btn.btn-primary:hover {
-  box-shadow: 0 14px 26px -12px rgba(145, 63, 158, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(145, 63, 158, 0.2);
+  box-shadow: 0 14px 26px -12px rgb(43, 145, 185), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(145, 63, 158, 0.2);
 }
 
 .dark-edition .btn.btn-primary.btn-link {
   background-color: transparent;
-  color: #913f9e;
+  color: #3baee4;
   box-shadow: none;
 }
 
@@ -18885,7 +18885,7 @@ Copyright (c) 2015 Daniel Eden
 .dark-edition .btn.btn-primary.btn-link:focus,
 .dark-edition .btn.btn-primary.btn-link:active {
   background-color: transparent;
-  color: #913f9e;
+  color: #17a2b8;
 }
 
 .dark-edition .btn.btn-warning {
