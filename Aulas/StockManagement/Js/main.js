@@ -58,7 +58,7 @@ function linhasTabShelves(idTBody, shelf) {
 $("#navShel").on("click", function () {
     $(".navbar-brand").text("Shelves");
 
-    $("#container").html('<div class="row"><div class="col-md-8"><div id="tab"><table id="datatable" class="table  table-bordered " cellspacing="0" width="100%"><thead class="text-center thead-light "><tr><th>Id</th><th>Capacity</th><th>Product Id</th><th>Rent Price</th></tr></thead><tbody id="tBodyP" class="text-center "></tbody></table></div></div><div class="col-md-2"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#squarespaceModal">Insert</button><button type="button" class="btn btn-info">Update</button><button type="button" class="btn btn-danger" id="del">DELETE</button></div></div>');
+    $("#container").html('<div class="row"><div class="col-md-1"></div><div class="col-md-8"><div id="tab"><table id="datatable" class="table  table-bordered " cellspacing="0" width="100%"><thead class="text-center thead-light "><tr><th>Id</th><th>Capacity</th><th>Product Id</th><th>Rent Price</th></tr></thead><tbody id="tBodyP" class="text-center "></tbody></table></div></div><div class="col-md-2 " style="padding-top:12vh;"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#squarespaceModal">Insert</button><button type="button" class="btn btn-info">Update</button><button type="button" class="btn btn-danger" id="del">DELETE</button></div><div class="col-md-1"></div></div>');
     getShelves();
     data();
     select();
