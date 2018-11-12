@@ -58,7 +58,7 @@ function linhasTabShelves(idTBody, shelf) {
 $("#navShel").on("click", function () {
     $(".navbar-brand").text("Shelves");
 
-    $("#container").html('<div class="row"><div class="col-md-1"></div><div class="col-md-8"><div id="tab"><table id="datatable" class="table  table-bordered " cellspacing="0" width="100%"><thead class="text-center thead-light "><tr><th>Id</th><th>Capacity</th><th>Product Id</th><th>Rent Price</th></tr></thead><tbody id="tBodyP" class="text-center "></tbody></table></div></div><div class="col-md-2 " style="padding-top:12vh;"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#squarespaceModal">Insert</button><button type="button" class="btn btn-info">Update</button><button type="button" class="btn btn-danger" id="del">DELETE</button></div><div class="col-md-1"></div></div>');
+    $("#container").html('<div class="row"><div class="col-md-1"></div><div class="col-md-8"><div id="tab"><table id="datatable" class="table  table-bordered " cellspacing="0" width="100%"><thead class="text-center thead-light "><tr><th>Id</th><th>Capacity</th><th>Product Id</th><th>Rent Price</th></tr></thead><tbody id="tBodyP" class="text-center "></tbody></table></div></div><div class="col-md-2 " style="padding-top:12vh;"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#squarespaceModal">Insert</button><button type="button" class="btn btn-info id="upd">Update</button><button type="button" class="btn btn-danger" id="del">DELETE</button></div><div class="col-md-1"></div></div>');
     getShelves();
     data();
     select();
@@ -96,59 +96,96 @@ function data() {
     });
 
 
-    
+
 
 }
 
-var idLinha="";
-function select(){
-var table = $('#datatable').DataTable();
+var idLinha = "";
+capLinha;
+rentLinha;
+prodIdLinha;
+function select() {
+    var table = $('#datatable').DataTable();
 
-$('#datatable tbody').on('click', 'tr', function () {
-    
+    $('#datatable tbody').on('click', 'tr', function () {
 
-    if ( $(this).hasClass('table-active') ) {
-        $(this).removeClass('table-active');
-       
-    }
-    else {
-        table.$('tr.table-active').removeClass('table-active');
-        $(this).addClass('table-active'); 
-        var linhaS=table.row(this).data();
-         idLinha=linhaS.id;
-        console.log(idLinha);
-    }
-} );
 
-//botao delete
-$('#del').click( function () {
-
-    $.ajax({
-
-        url: "https://mcupacademy.herokuapp.com/api/Shelves/"+idLinha,
-        type: 'DELETE',
-        success: function (data) {
-            console.log(data);
-
- table.row('.table-active').remove().draw( false );
-
+        if ($(this).hasClass('table-active')) {
+            $(this).removeClass('table-active');
 
         }
+        else {
+            table.$('tr.table-active').removeClass('table-active');
+            $(this).addClass('table-active');
+            var linhaS = table.row(this).data();
+            idLinha = linhaS.id;
+            capLinha=linhaS.capacity;
+            rentLinha=linhaS.rentPrice;
+            prodIdLinha=linhaS.productId;
+
+            console.log(idLinha);
+        }
     });
-   
-} );
-    
+
+    //botao delete
+    $('#del').click(function () {
+
+        $.ajax({
+
+            url: "https://mcupacademy.herokuapp.com/api/Shelves/" + idLinha,
+            type: 'DELETE',
+            success: function (data) {
+                console.log(data);
+
+                table.row('.table-active').remove().draw(false);
+
+
+            }
+        });
+
+    });
+
+}
+
+//botao update
+$('#upd').click(function () {
+    var s = new Shelf;
+    s.capacity = $("#capacityIn").val();
+    s.productId = $("#productIdIn").val();
+    s.rentPrice = $("#rentPriceIn").val();
+    var myJSON = JSON.stringify(s);
+    $.ajax({
+
+        url: "https://mcupacademy.herokuapp.com/api/Shelves/" + idLinha+"replace",
+        type: 'POST',
+        contentType: 'application/json',
+        data: myJSON,
+        success: function () {
+            $("#status").text("Product updated");
+            $("#message").text("Insert other product or close");
+            limpaModal();
+        },
+        error: function () {
+            $("#status").text("Error");
+        }
+    });
+
+});
+
 }
 
 //Botao save insert
-$('#salvar').click( function () {
+$('#salvar').click(function () {
 
-var s=new Shelf;
-s.capacity=$("#capacityIn").val();
-s.productId=$("#productIdIn").val();
-s.rentPrice=$("#rentPriceIn").val();
+    var s = new Shelf;
+    s.capacity = $("#capacityIn").val();
+    s.productId = $("#productIdIn").val();
+    s.rentPrice = $("#rentPriceIn").val();
 
-var myJSON=JSON.stringify(s);
+
+if($("#capacityIn").val!=""&$("#productIdIn").val!=""&$("#rentPriceIn").val!=""){
+   
+    var myJSON = JSON.stringify(s);
     $.ajax({
 
         url: "https://mcupacademy.herokuapp.com/api/Shelves",
@@ -156,27 +193,37 @@ var myJSON=JSON.stringify(s);
         contentType: 'application/json',
         data: myJSON,
         success: function () {
-$("#status").text("Product inserted");
-$("#message").text("Insert other product or close");          
-limpaModal();   
+            $("#status").text("Product inserted");
+            $("#message").text("Insert other product or close");
+            limpaModal();
         },
         error: function () {
-            $("#status").text("Error");  
-              }
-       
+            $("#status").text("Error");
+        }
 
 
 
-        
+
+
 
     });
-   
-} );
+}
+});
+
+
+
+//Botao close insert
+$('#close').click(function () {
+
+    $('#datatable').DataTable().ajax.reload();
+})
+
+
 
 $(".form-control").change(function () {
-    $("#status").text("");
-});
-    
+        $("#status").text("");
+    });
+
 function limpaModal() {
     $("#capacityIn").val('');
     $("#productIdIn").val('');
